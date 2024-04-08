@@ -1,6 +1,6 @@
 import {
     createBrowserRouter
-  } from "react-router-dom";
+} from "react-router-dom";
 
 import App from './App.jsx'
 import ErrorPage from './Error-page.jsx';
