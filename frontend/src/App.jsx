@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    navigate("/home");
+  }, [navigate]);
 
-  return (
-    <>
-      <p>hello</p>
-    </>
-  )
+  return null;
 }
 
-export default App
+export default App;
