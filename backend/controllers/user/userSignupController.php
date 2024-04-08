@@ -10,7 +10,7 @@ require "../../dbConnection.php";
 require "../../models/userModel.php";
 
 $db = new dbConnection;
-$userModel = new userModel($db);
+$userModel = new UserModel($db);
 
 //parbaude
 //vai vards nav jau izmantots

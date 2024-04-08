@@ -2,7 +2,7 @@
 
 // seit notiek viss sql lietas datu dabusana un iesutisana ieksa db
 
-class userModel {
+class UserModel {
 
     public $dbConnection;
 
@@ -13,7 +13,7 @@ class userModel {
 
 
     function adduser(){
-        
+
     }
     
 

@@ -10,7 +10,7 @@ require "../../dbConnection.php";
 require "../../models/userModel.php";
 
 $db = new dbConnection;
-$userModel = new userModel($db);
+$userModel = new UserModel($db);
 
 //te dabus login datus no frontend un tev ir jarparbauda vai 
 //users pastav un vai ari parole ir pareiza ja viss ok, tad login user

@@ -11,7 +11,7 @@ require "../../dbConnection.php";
 require "../../models/userModel.php";
 
 $db = new dbConnection;
-$userModel = new userModel($db);
+$userModel = new UserModel($db);
 
 
 // vel kartigi nezinu ko sis daris bet zinu ka vaidzes velak

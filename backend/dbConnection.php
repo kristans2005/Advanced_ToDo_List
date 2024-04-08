@@ -12,6 +12,16 @@ class dbConnection {
         "charset" => "utf8mb4"
       ];
 
+      // rudolfam manliekas bus vajadzigs savs config vel nezinu
+    // private $config = [
+    // "host" => "localhost",
+    // "dbname" => "advanced_todo",
+    // "user" => "root",
+    // "password" => "",
+    // "charset" => "utf8mb4"
+    // ];
+
+
     public $dbConn;
     public $pdo;
 
