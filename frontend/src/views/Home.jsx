@@ -1,4 +1,5 @@
 
+import { GetData } from "../utils/FetchingData"
 
 export function Home() {
     
