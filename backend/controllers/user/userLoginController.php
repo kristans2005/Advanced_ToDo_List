@@ -17,6 +17,15 @@ $userModel = new UserModel($db);
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    $data = [
+        "username" => "rudolf",
+        "gmail" => "rudolfs.ipa22@gmail.com",
+        "password" => "r12345678"
+    ];
+    
+    
+
+
     //seit bus dati kas atnaks no front end
     $data = json_decode(file_get_contents("php://input"), true);
 
