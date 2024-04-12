@@ -22,14 +22,36 @@ class UserModel {
     }
 
 
-    function doseUserExist(){
+    function doseUserExist($username){ 
+        $sql = "SELECT * FROM users WHERE name = :username";
+        $stmt = $this->dbConnection->connection()->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        if($stmt->fetchAll() != []) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    function doesPassExist($password) {
+        $sql = "SELECT * FROM users WHERE password = :password";
+        $stmt = $this->dbConnection->connection()->prepare($sql);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        if($stmt->fetchAll() != []) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
     function deleteUser(){
 
     }
+
+
 
 
     //utt
