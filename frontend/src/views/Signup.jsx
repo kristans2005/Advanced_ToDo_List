@@ -35,7 +35,7 @@ function Signup() {
         event.preventDefault();
         if (validateForm()) {
 
-            axios.post('http://localhost/userSignupController.php', {
+            axios.post('http://localhost:8888/controllers/user/userSignupController.php', {
                 name: username,
                 email: email,
                 password: password
