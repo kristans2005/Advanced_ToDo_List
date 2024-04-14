@@ -3,9 +3,10 @@ import {
 } from "react-router-dom";
 
 import SignUp from "./views/Signup.jsx";
-import App from './App.jsx'
+import App from './App.jsx';
 import ErrorPage from './Error-page.jsx';
 import { Home } from "./views/home.jsx";
+import Login from "./views/login.jsx";
 
 export const routers = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const routers = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <SignUp />
+    element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ])
