@@ -71,6 +71,7 @@ function Signup() {
                     <label>
                         Email:
                         <input
+                            className='inputs'
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -80,13 +81,14 @@ function Signup() {
                     <label>
                         Password:
                         <input
+                            className='inputs'
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <div className="error">{errors.password}</div>
                     </label>
-                    <input type="submit" value="Submit" />
+                    <input className='btns' type="submit" value="Submit" />
                 </form>
             </div>
         </>

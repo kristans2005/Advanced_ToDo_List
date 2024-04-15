@@ -2,4 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components{
 
+    .inputs{
+        @apply border m-1 rounded-sm p-1
+    }
+
+    .btns{
+        @apply border hover:bg-gray-100 m-1 rounded-md p-1
+    }
+
+
+}
