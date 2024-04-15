@@ -12,8 +12,13 @@ class UserModel {
     }
 
 
-    function adduser(){
-
+    function adduser($username, $email, $password){
+        $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+        $stmt = $this->dbConnection->connection()->prepare($sql);
+        $stmt->bindParam(':name', $username);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
     }
     
 
@@ -34,6 +39,18 @@ class UserModel {
         }
     }
 
+    function doesEmailExist($email){ 
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $stmt = $this->dbConnection->connection()->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        if($stmt->fetchAll() != []) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function doesPassExist($password) {
         $sql = "SELECT * FROM users WHERE password = :password";
         $stmt = $this->dbConnection->connection()->prepare($sql);
@@ -45,6 +62,8 @@ class UserModel {
             return false;
         }
     }
+
+
 
 
     function deleteUser(){

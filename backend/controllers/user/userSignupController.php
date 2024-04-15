@@ -12,6 +12,8 @@ require "../../models/userModel.php";
 $db = new dbConnection;
 $userModel = new UserModel($db);
 
+
+
 //parbaude
 //vai vards nav jau izmantots
 //vai parole nav par mazu / palielu
@@ -21,11 +23,32 @@ $userModel = new UserModel($db);
 //encrypto password
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    $errors = [];
     //seit bus dati kas atnaks no front end
     $data = json_decode(file_get_contents("php://input"), true);
 
-    var_dump($data);
+    $username = $data["name"];
+    $email = $data["email"];
+    $password = $data["password"];
+
+    if($userModel->doseUserExist($data["name"])) {
+        echo "username already exists";
+        $errors["username"] = "Username already exists!";
+    } 
+
+    if($userModel->doesEmailExist($data["email"])) {
+        echo "email already exists";
+        $errors["email"] = "Email already exists!";
+    } 
+
+    if(empty($errors)) {
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $userModel->adduser($username, $email, $hashed_password);
+    } else {
+    echo json_encode($errors);
+    } 
+
+  //  var_dump($data);
     
     
 
