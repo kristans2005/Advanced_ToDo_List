@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios'; 
+import axios from 'axios';
+import '../styles/Signup.css';
+import '../index.css';
 //npm install axios
 
 function Signup() {
@@ -29,49 +31,79 @@ function Signup() {
 
         setErrors(formErrors);
         return formIsValid;
-    }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (validateForm()) {
-
-            axios.post('http://localhost:8888/controllers/user/userSignupController.php', {
-                name: username,
-                email: email,
-                password: password
-            })
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+            axios
+                .post(
+                    'http://localhost:8888/controllers/user/userSignupController.php',
+                    {
+                        name: username,
+                        email: email,
+                        password: password,
+                    }
+                )
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         } else {
             console.log('Form is invalid');
         }
-    }
+    };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <div className="error">{errors.username}</div>
-                </label>
-                <label>
-                    Email:
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <div className="error">{errors.email}</div>
-                </label>
-                <label>
-                    Password:
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <div className="error">{errors.password}</div>
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        </div>
+        <>
+            {/* navbar visur jaieliek */}
+            <navbar className="navbar">
+                <a href="/Signup">
+                    <button>Signup</button>
+                </a>
+                <a href="/Login">
+                    <button>Signup</button>
+                </a>
+                <a href="/Home">
+                    <button>Home</button>
+                </a>
+            </navbar>
+
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        Username:
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                        <div className="error">{errors.username}</div>
+                    </label>
+                    <label>
+                        Email:
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <div className="error">{errors.email}</div>
+                    </label>
+                    <label>
+                        Password:
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <div className="error">{errors.password}</div>
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </>
     );
 }
 
