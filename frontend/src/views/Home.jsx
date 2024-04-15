@@ -1,23 +1,26 @@
 import { GetData } from '../utils/FetchingData';
-import '../index.css';
+import SideBar from '../components/SideBar';
+import NavBar from '../components/NavBar';
+import Footer from '../components/footer';
 
 export function Home() {
     return (
-        <>
-            {/* navbar visur jaieliek */}
-            <navbar className="navbar">
-                <a href="/Signup">
-                    <button>Signup</button>
-                </a>
-                <a href="/Login">
-                    <button>Signup</button>
-                </a>
-                <a href="/Home">
-                    <button>Home</button>
-                </a>
-                <button>Logout</button>
-            </navbar>
-            <h1>HOME PAGE</h1>
-        </>
+        <div className=''>
+            <div>
+                <NavBar />
+            </div>
+            <div className='flex'>
+                <div>
+                    <SideBar />
+                </div>
+                <main>
+                    <h1>home</h1>
+                </main>
+            </div>
+            <div>
+                <Footer />
+            </div>
+            
+        </div>
     );
 }

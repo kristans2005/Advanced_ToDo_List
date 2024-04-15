@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../styles/Signup.css';
-import '../index.css';
 //npm install axios
 
 function Signup() {
@@ -58,18 +56,6 @@ function Signup() {
 
     return (
         <>
-            {/* navbar visur jaieliek */}
-            <navbar className="navbar">
-                <a href="/Signup">
-                    <button>Signup</button>
-                </a>
-                <a href="/Login">
-                    <button>Signup</button>
-                </a>
-                <a href="/Home">
-                    <button>Home</button>
-                </a>
-            </navbar>
 
             <div>
                 <form onSubmit={handleSubmit}>

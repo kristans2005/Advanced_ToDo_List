@@ -5,7 +5,7 @@ function App() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        navigate('/Signup');
+        navigate('/home');
     }, [navigate]);
 
     return null;

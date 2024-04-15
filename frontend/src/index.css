@@ -1,24 +1,5 @@
-.navbar {
-    display: flex;
-    column-gap: 10px;
-    justify-content: left;
-    background-color: grey;
-    border: 3px solid black;
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.navbar > a > button {
-    height: 50px;
-    width: 100px;
-    text-decoration: none;
-    color: red;
-}
 
-.navbar > button {
-    height: 50px;
-    width: 100px;
-    text-decoration: none;
-    color: red;
-}
