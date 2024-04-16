@@ -5,7 +5,7 @@ function SideBar(){
 
 
     return(
-    <aside className=" bg-gray-300 w-[200px] h-screen z-40 ">
+    <aside className=" bg-gray-300 w-[200px] h-full z-40 ">
         <div>
             <h1>sidebar</h1>
         </div>

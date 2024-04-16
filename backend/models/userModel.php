@@ -27,7 +27,7 @@ class UserModel {
     }
 
 
-    function doseUserExist($username){ 
+    function doesUserExist($username){ 
         $sql = "SELECT * FROM users WHERE name = :username";
         $stmt = $this->dbConnection->connection()->prepare($sql);
         $stmt->bindParam(':username', $username);

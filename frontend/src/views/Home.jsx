@@ -13,17 +13,17 @@ export function Home() {
     }
 
     return (
-        <div className=''>
+        <div className='flex flex-col min-h-screen'>
             <div>
                 <NavBar />
             </div>
-            <div className='flex'>
+            <div className='flex-1 flex'>
                 <div>
                     <SideBar />
                 </div>
-                <main>
+                <main className="flex-1">
                     <h1>home page</h1>
-                    <div className=' m-3 p-2 bg-gray-200'>
+                    <div className='m-3 p-2 bg-gray-200 w-max'>
                         <h1>user id for testing</h1>
                         <form onSubmit={handleUserID}>
                             <input className='inputs' placeholder='user id' name='userId' type="number" />
@@ -36,7 +36,6 @@ export function Home() {
             <div>
                 <Footer />
             </div>
-            
         </div>
     );
 }

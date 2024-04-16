@@ -19,14 +19,15 @@ $userModel = new UserModel($db);
 
 echo "hi2";
 
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = [
+        "username" => "rudolf",
+        "gmail" => "rudolfs.ipa22@gmail.com",
+        "password" => "r12345678"
+    ];
 
-           //seit bus dati kas atnaks no front end
-    $data = json_decode(file_get_contents("php://input"), true);
-    
     $errors = [];
 
-    if(!$userModel->doseUserExist($data["username"])) {
+    if(!$userModel->doesUserExist($data["username"])) {
         echo "username is not valid";
         $errors["username"] = "User does not exist!";
     } 
@@ -51,7 +52,7 @@ echo "hi2";
     
     
 
-
- 
+    //seit bus dati kas atnaks no front end
+    $data = json_decode(file_get_contents("php://input"), true);
 
 }
