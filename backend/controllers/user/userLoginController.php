@@ -19,12 +19,11 @@ $userModel = new UserModel($db);
 
 echo "hi2";
 
-    $data = [
-        "username" => "rudolf",
-        "gmail" => "rudolfs.ipa22@gmail.com",
-        "password" => "r12345678"
-    ];
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+           //seit bus dati kas atnaks no front end
+    $data = json_decode(file_get_contents("php://input"), true);
+    
     $errors = [];
 
     if(!$userModel->doseUserExist($data["username"])) {
@@ -50,10 +49,9 @@ echo "hi2";
     }
 
     
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
 
 
-    //seit bus dati kas atnaks no front end
-    $data = json_decode(file_get_contents("php://input"), true);
+ 
 
 }

@@ -8,7 +8,7 @@ class dbConnection {
         "host" => "localhost",
         "dbname" => "advanced_todo",
         "user" => "root",
-        "password" => "",
+        "password" => "root",
         "charset" => "utf8mb4"
       ];
 
