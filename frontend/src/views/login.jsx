@@ -7,7 +7,6 @@ import axios from 'axios';
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [gmail, setGmail] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -16,7 +15,6 @@ function Login() {
                 'http://localhost:8888/controllers/user/userLoginController.php',
                 {
                     username,
-                    gmail,
                     password,
                 },
                 {
@@ -27,58 +25,55 @@ function Login() {
             );
             const data = response.data;
             console.log(response.data);
-            if (data.error) {
-                console.error('Login error:', data.error);
-            } else {
-                console.log('Login successful');
-            }
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
     return (
-        <div className="">
+        <div className="flex flex-col min-h-screen">
             <div>
                 <NavBar />
             </div>
-            <div className="flex">
+            <div className="flex-1 flex">
                 <div>
                     <SideBar />
                 </div>
-                <form onSubmit={handleLogin}>
-                    <label>
-                        Username:
-                        <input
-                            className="inputs"
-                            type="text"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                        <div className="error"></div>
-                    </label>
-                    <label>
-                        Email:
-                        <input
-                            className="inputs"
-                            type="gmail"
-                            value={gmail}
-                            onChange={(e) => setGmail(e.target.value)}
-                        />
-                        <div className="error"></div>
-                    </label>
-                    <label>
-                        Password:
-                        <input
-                            className="inputs"
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <div className="error"></div>
-                    </label>
-                    <input className="btns" type="submit" value="Submit" />
-                </form>
+                <div className="">
+                    <form onSubmit={handleLogin}>
+                        <label>
+                            Username:
+                            <input
+                                className="inputs"
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                            <div className="error"></div>
+                        </label>
+
+                        <label>
+                            Password:
+                            <input
+                                className="inputs"
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <div className="error"></div>
+                        </label>
+                        <input className="btns" type="submit" value="Submit" />
+                        <a
+                            className="btns"
+                            type="button"
+                            value="Forgot password"
+                            href="/forgot"
+                        >
+                            {' '}
+                            Forgot Password
+                        </a>
+                    </form>
+                </div>
             </div>
             <div>
                 <Footer />

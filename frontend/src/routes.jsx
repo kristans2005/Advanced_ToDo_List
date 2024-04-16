@@ -7,6 +7,7 @@ import App from './App.jsx';
 import ErrorPage from './Error-page.jsx';
 import { Home } from "./views/home.jsx";
 import Login from "./views/login.jsx";
+import Forgot from "./views/Forgot.jsx";
 
 export const routers = createBrowserRouter([
   {
@@ -26,4 +27,8 @@ export const routers = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/forgot",
+    element: <Forgot />,
+  }
 ])
