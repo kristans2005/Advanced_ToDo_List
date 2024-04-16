@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import SideBar from '../components/SideBar';
+import NavBar from '../components/NavBar';
+import Footer from '../components/footer';
 //npm install axios
 
 function Signup() {
@@ -55,14 +58,21 @@ function Signup() {
     };
 
     return (
-        <>
+        <div className="flex flex-col min-h-screen">
+            <div>
+                <NavBar />
+            </div>
+            <div className="flex-1 flex">
+                <div>
+                    <SideBar />
+                </div>
 
             <div>
                 <form onSubmit={handleSubmit}>
                     <label>
                         Username:
                         <input
-                            type="text"
+                            type='inputs'
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
@@ -91,7 +101,12 @@ function Signup() {
                     <input className='btns' type="submit" value="Submit" />
                 </form>
             </div>
-        </>
+            </div>
+            <div>
+                <Footer />
+            </div>
+        </div>
+
     );
 }
 

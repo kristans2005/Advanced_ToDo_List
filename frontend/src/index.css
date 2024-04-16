@@ -11,7 +11,4 @@
         @apply border hover:bg-gray-100 m-1 rounded-md p-1;
     }
 
-    .text {
-        @apply border m-1 rounded-sm p-1;
-    }
 }

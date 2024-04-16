@@ -28,17 +28,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
 
     if(!$userModel->doesUserExist($data["username"])) {
-        echo "username is not valid";
+        echo "username is not valid ";
         $errors["username"] = "User does not exist!";
     } 
 
     if(!$userModel->doesPassExist($data["password"])) {
-        echo "password is not valid";
+        echo "password is not valid ";
         $errors["password"] = "Password is incorrect!";
     } 
 
     if(!Validator::email($data["gmail"])) {
-        echo "email is not valid";
+        echo "email is not valid ";
         $errors["gmail"] = "Email is not correct!";
         
     } 
@@ -56,3 +56,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     //seit bus dati kas atnaks no front end
     $data = json_decode(file_get_contents("php://input"), true);
 
+}
