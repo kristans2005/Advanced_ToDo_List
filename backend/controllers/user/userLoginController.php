@@ -17,13 +17,9 @@ $userModel = new UserModel($db);
 //users pastav un vai ari parole ir pareiza ja viss ok, tad login user
 
 
-echo "hi2";
 
-    $data = [
-        "username" => "rudolf",
-        "gmail" => "rudolfs.ipa22@gmail.com",
-        "password" => "r12345678"
-    ];
+
+
 
     $errors = [];
 
