@@ -14,9 +14,9 @@ export async function SendData(BCUrl, input){
 
 
 
-export async function GetData(BCUrl, input){
+export async function GetData(BCUrl){
     try {
-        const response = await axios.get(BCUrl, input);
+        const response = await axios.get(BCUrl);
         console.log(response.data);
     } catch (error) {
         console.error('Error submitting form:', error);

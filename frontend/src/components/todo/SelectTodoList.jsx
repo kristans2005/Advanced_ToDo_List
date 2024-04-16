@@ -1,18 +1,35 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 import { SendData } from "../../utils/FetchingData";
+import SelectTodoListBtn from "./SelectTodoListBtn";
+import { useGlobalState } from "../../utils/GlobalStateProvider";
 
-export default function SelectTodoList(){
+export default function SelectTodoList(props) {
+    const [data, setData] = useState([]);
+    const { userId } = useGlobalState();
 
     useEffect(() => {
-        const userId = localStorage.getItem('userId');
-        SendData('http://localhost:8888/controllers/todo/todoGetListController.php', userId);
-    }, []);
+        const fetchData = async () => {
+            try {
+                const userId = localStorage.getItem('userId');
+                const responseData = await SendData('http://localhost:8888/controllers/todo/todoGetListController.php', userId);
+                setData(responseData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
 
+        fetchData();
+    }, [userId]); // <-- Include userId in the dependency array
 
-    return(
-        <>
+    const JSX_Data = data.map((item, index) => (
+        <div key={index}>
+            <SelectTodoListBtn tableId={item.todo_table_id} TodoName={item.todo_table_name} />
+        </div>
+    ));
 
-        </>
-    )
-
+    return (
+       <>
+         {JSX_Data}
+       </> 
+    );
 }

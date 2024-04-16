@@ -12,16 +12,10 @@ require "../../utils/validator.php";
 $db = new dbConnection;
 $TodoModel = new ToDoModel($db);
 
-//echo "nigga";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $data = json_decode(file_get_contents("php://input"), true);
-    if($data != NULL) {
-        echo json_encode($TodoModel->getTodoTable($data));
-    }else{
-        echo json_encode($TodoModel->getTodoTable(1));
-    }
-
+    var_dump($data);
 
 }

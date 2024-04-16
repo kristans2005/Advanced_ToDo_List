@@ -19,4 +19,5 @@ function getTodoTable($userId) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+
 }
