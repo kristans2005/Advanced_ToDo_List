@@ -51,9 +51,8 @@ echo "hi2";
     }
 
     
-    
+
 
     //seit bus dati kas atnaks no front end
     $data = json_decode(file_get_contents("php://input"), true);
 
-}
