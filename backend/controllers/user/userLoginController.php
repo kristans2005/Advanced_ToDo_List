@@ -17,6 +17,10 @@ $userModel = new UserModel($db);
 //users pastav un vai ari parole ir pareiza ja viss ok, tad login user
 
 
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    
+    $data = json_decode(file_get_contents("php://input"), true);
 
 
 

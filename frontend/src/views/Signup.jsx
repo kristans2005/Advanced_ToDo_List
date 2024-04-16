@@ -90,7 +90,6 @@ function Signup() {
                     </label>
                     <input className='btns' type="submit" value="Submit" />
                 </form>
-                </div>
             </div>
         </>
     );
