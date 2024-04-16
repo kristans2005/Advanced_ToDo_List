@@ -11,4 +11,8 @@
         @apply border hover:bg-gray-100 m-1 rounded-md p-1;
     }
 
+    .error {
+        @apply text-red-700;
+    }
+
 }
