@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     //seit bus dati kas atnaks no front end
     $data = json_decode(file_get_contents("php://input"), true);
 
-    $username = $data["name"];
+    $username = $data["name"]; 
     $email = $data["email"];
     $password = $data["password"];
 

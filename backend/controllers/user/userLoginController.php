@@ -36,6 +36,7 @@ $userModel = new UserModel($db);
     if(!Validator::email($data["gmail"])) {
         echo "email is not valid";
         $errors["gmail"] = "Email is not correct!";
+        
     } 
 
     
