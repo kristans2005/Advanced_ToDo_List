@@ -56,12 +56,13 @@ function Signup() {
 
     return (
         <>
+
             <div>
                 <form onSubmit={handleSubmit}>
                     <label>
                         Username:
                         <input
-                            type="inputs"
+                            type="text"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                         />
@@ -70,7 +71,7 @@ function Signup() {
                     <label>
                         Email:
                         <input
-                            className="inputs"
+                            className='inputs'
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -80,15 +81,16 @@ function Signup() {
                     <label>
                         Password:
                         <input
-                            className="inputs"
+                            className='inputs'
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                         <div className="error">{errors.password}</div>
                     </label>
-                    <input className="btns" type="submit" value="Submit" />
+                    <input className='btns' type="submit" value="Submit" />
                 </form>
+                </div>
             </div>
         </>
     );

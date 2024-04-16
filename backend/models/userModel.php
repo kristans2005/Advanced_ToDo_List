@@ -23,7 +23,7 @@ class UserModel {
     
 
     function getUser(){
-
+        
     }
 
 
