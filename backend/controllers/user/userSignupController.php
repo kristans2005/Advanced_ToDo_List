@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $data["email"];
     $password = $data["password"];
 
-    if($userModel->doseUserExist($data["name"])) {
+    if($userModel->doesUserExist($data["name"])) {
         echo "username already exists";
         $errors["username"] = "Username already exists!";
     } 

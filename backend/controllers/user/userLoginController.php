@@ -16,18 +16,16 @@ $userModel = new UserModel($db);
 //te dabus login datus no frontend un tev ir jarparbauda vai 
 //users pastav un vai ari parole ir pareiza ja viss ok, tad login user
 
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-echo "hi2";
 
-    $data = [
-        "username" => "rudolf",
-        "gmail" => "rudolfs.ipa22@gmail.com",
-        "password" => "r12345678"
-    ];
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    var_dump($data);
 
     $errors = [];
 
-    if(!$userModel->doseUserExist($data["username"])) {
+    if(!$userModel->doesUserExist($data["username"])) {
         echo "username is not valid";
         $errors["username"] = "User does not exist!";
     } 
@@ -50,10 +48,10 @@ echo "hi2";
     }
 
     
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
 
-
+    //kristians gejs fr no cap
     //seit bus dati kas atnaks no front end
-    $data = json_decode(file_get_contents("php://input"), true);
+
 
 }
