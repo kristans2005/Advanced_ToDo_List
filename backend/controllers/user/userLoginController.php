@@ -17,13 +17,13 @@ $userModel = new UserModel($db);
 //users pastav un vai ari parole ir pareiza ja viss ok, tad login user
 
 
-echo "hi2";
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    
+    $data = json_decode(file_get_contents("php://input"), true);
 
-    $data = [
-        "username" => "rudolf",
-        "gmail" => "rudolfs.ipa22@gmail.com",
-        "password" => "r12345678"
-    ];
+
+
 
     $errors = [];
 
