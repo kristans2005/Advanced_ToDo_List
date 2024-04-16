@@ -23,37 +23,37 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents("php://input"), true);
 
 
-
+ 
 
     $errors = [];
 
     if(!$userModel->doesUserExist($data["username"])) {
-        echo "username is not valid";
-        $errors["username"] = "User does not exist!";
-    } 
-
-    if(!$userModel->doesPassExist($data["password"])) {
-        echo "password is not valid";
-        $errors["password"] = "Password is incorrect!";
-    } 
-
-    if(!Validator::email($data["gmail"])) {
-        echo "email is not valid";
-        $errors["gmail"] = "Email is not correct!";
         
-    } 
-
-    
-    if(empty($errors)) {
-        echo "everything is ok!";
+        echo $errors["username"] = "User does not exist!";
     } else {
-        echo "something seems off!";
+
+        $UserData = $userModel->getUserInfo($data['username']);
+
+
+        if(!Validator::verifyPassword($data["password"], $UserData[0]["password"])) {
+            $errors["password"] = "Password is not correct!";
+        }
+        
+        if(empty($errors)) {
+            echo "everything is ok!";
+        } else {
+            echo json_encode($errors);
+            }
+
+
     }
 
+
+
+
     
     
 
-    //seit bus dati kas atnaks no front end
-    $data = json_decode(file_get_contents("php://input"), true);
+
 
 }

@@ -26,6 +26,14 @@ class UserModel {
         
     }
 
+    function getUserInfo($username) {
+        $sql = "SELECT * FROM users WHERE name = :username";
+        $stmt = $this->dbConnection->connection()->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        return $stmt->fetchAll();
+        
+    }
 
     function doesUserExist($username){ 
         $sql = "SELECT * FROM users WHERE name = :username";

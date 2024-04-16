@@ -8,6 +8,14 @@ public static function email($email) {
     } else {
         return false;
     }
-}
 
+
+}
+public static function verifyPassword($password, $hashedpassword) {
+    if(password_verify($password, $hashedpassword)) {
+        return true;      
+    } else {
+        return false;
+    }
+}
 }
