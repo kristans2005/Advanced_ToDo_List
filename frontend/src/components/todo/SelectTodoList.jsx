@@ -12,7 +12,11 @@ export default function SelectTodoList(props) {
             try {
                 const userId = localStorage.getItem('userId');
                 const responseData = await SendData('http://localhost:8888/controllers/todo/todoGetListController.php', userId);
-                setData(responseData);
+                if (Array.isArray(responseData) && !responseData.hasOwnProperty('error')) {
+                    setData(responseData);
+                } else {
+                    console.error("API response is invalid or contains errors");
+                }       
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -21,6 +25,8 @@ export default function SelectTodoList(props) {
         fetchData();
     }, [userId]); // <-- Include userId in the dependency array
 
+
+    
     const JSX_Data = data.map((item, index) => (
         <div key={index}>
             <SelectTodoListBtn tableId={item.todo_table_id} TodoName={item.todo_table_name} />
