@@ -19,5 +19,12 @@ function getTodoTable($userId) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getTodoBoard($TodoTableId) {
+    $sql = "SELECT * FROM todo_bord WHERE todo_table_id = :todo_table_id";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':todo_table_id', $TodoTableId);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 }
