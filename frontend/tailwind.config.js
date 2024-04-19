@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      invert: {
+        25: '.25',
+        50: '.5',
+        75: '.75',
+        80: '.80',
+      }
+    },
   },
   plugins: [],
 }
