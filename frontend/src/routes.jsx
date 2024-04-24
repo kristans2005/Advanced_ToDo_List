@@ -10,6 +10,7 @@ import HomePage from "./components/home/HomePage.jsx";
 import BordPage from "./components/home/BordPage.jsx";
 import Login from "./views/login.jsx";
 import Forgot from "./views/Forgot.jsx";
+import Usersettings from "./views/Usersettings.jsx";
 
 export const routers = createBrowserRouter([
   {
@@ -42,5 +43,9 @@ export const routers = createBrowserRouter([
   {
     path: "/forgot",
     element: <Forgot />,
+  },
+  {
+    path: "/usersettings",
+    element: <Usersettings />
   }
 ]);

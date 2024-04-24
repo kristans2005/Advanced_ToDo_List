@@ -15,7 +15,11 @@ export default function NavBar(){
         </a>
         <a href="/Home">
             <button>Home</button>
-        </a>
+        </a> 
+        <a href="/Usersettings">
+            <button>User Settings</button>
+        </a>    
+       
     </nav>
     );
 }
