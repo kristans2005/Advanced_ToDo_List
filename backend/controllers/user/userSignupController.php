@@ -32,12 +32,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $data["password"];
 
     if($userModel->doesUserExist($data["name"])) {
-        echo "username already exists";
         $errors["username"] = "Username already exists!";
     } 
 
     if($userModel->doesEmailExist($data["email"])) {
-        echo "email already exists";
         $errors["email"] = "Email already exists!";
     } 
 
