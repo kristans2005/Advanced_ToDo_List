@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useGlobalState } from "../../utils/GlobalStateProvider"
 import AddNewTodo from "../todo/AddNewTodo";
 import TodoBordTitle from "../todo/TodoBordTitle";
+import TodoList from "../todo/TodoList";
 
 export default function BordPage() {
     const { bordData } = useGlobalState();
@@ -12,7 +13,8 @@ export default function BordPage() {
                 <TodoBordTitle title={item.todo_bord_name} />
             </div>
             <div draggable className=" grid grid-flow-row gap-2 text-gray-300 bg-gray-700 rounded-md m-2 p-1">
-                <h1>hello</h1>
+                {console.log("update")}
+                <TodoList todoID={item.todo_bord_id} /> 
             </div>
             <div>
                 <AddNewTodo />
