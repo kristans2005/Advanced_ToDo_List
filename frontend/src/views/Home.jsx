@@ -15,7 +15,7 @@ function Home() {
                     <SideBar />
                 </div>
                 <main>
-                    <Outlet /> {/* Renders nested routes */}
+                    <Outlet />
                 </main>
             </div>
             <div>

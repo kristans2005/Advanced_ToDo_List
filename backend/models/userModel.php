@@ -32,7 +32,6 @@ class UserModel {
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         return $stmt->fetchAll();
-        
     }
 
     function doesUserExist($username){ 

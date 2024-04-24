@@ -27,5 +27,13 @@ function getTodoBoard($TodoTableId) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getTodoList($username) {
+    $sql = "SELECT * FROM users WHERE name = :username";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 
 }

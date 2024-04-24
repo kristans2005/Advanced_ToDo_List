@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS todo_task (
 	todo_task_id INT AUTO_INCREMENT PRIMARY KEY,
 	todo_bord_id INT NOT NULL,
 	title VARCHAR(255) NOT NULL,
-	description VARCHAR(255) NOT NULL,
+	description VARCHAR(255),
 	expiration_date DATETIME,
 	todo_row_order INT NOT NULL,
 	is_completed BOOLEAN NOT NULL DEFAULT FALSE,
