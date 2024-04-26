@@ -5,7 +5,7 @@ import { getTodoBordData } from "../../utils/FetchingData";
 
 export default function TodoList(props) {
     const [ID, setID] = useState(props.todoID);
-    
+    const [data, setData] = useState([]);
     
 
     useEffect(() => {
@@ -16,6 +16,7 @@ export default function TodoList(props) {
             try {
                 const response = await axios.post('http://localhost:8888/controllers/todo/todoGetBordListController.php', ID);
                 console.log(response.data);
+                setData(response.data);
             }catch{
                 console.error('Error fetching data:', error);
             }
@@ -27,14 +28,19 @@ export default function TodoList(props) {
         }
     }, [props.todoID])
 
+    const jsxData = data.map((items, index) => (
+        <div draggable className=" text-gray-300 bg-gray-700 rounded-md  p-1" key={index}>
+            <h1>{items.title}</h1>
 
+        </div>
+    ));
 
 
 
     return (
-        <div>
-            <h1>hello asdas</h1>
-        </div>
+        <>
+        {jsxData}
+        </>
     );
 
 }

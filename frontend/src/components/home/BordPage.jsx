@@ -12,7 +12,7 @@ export default function BordPage() {
             <div className=" text-center">
                 <TodoBordTitle title={item.todo_bord_name} />
             </div>
-            <div draggable className=" grid grid-flow-row gap-2 text-gray-300 bg-gray-700 rounded-md m-2 p-1">
+            <div className=" grid grid-flow-row gap-2">
                 {console.log("update")}
                 <TodoList todoID={item.todo_bord_id} /> 
             </div>

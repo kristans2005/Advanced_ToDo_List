@@ -35,5 +35,13 @@ function getTodoList($username) {
     return $stmt->fetchAll();
 }
 
+function getBoardList($id) {
+    $sql = "SELECT * FROM todo_task WHERE todo_bord_id = :todo_bord_id ORDER BY todo_row_order ASC";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':todo_bord_id', $id);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 }
