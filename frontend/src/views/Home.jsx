@@ -19,7 +19,7 @@ function Home() {
                 </main>
             </div>
             <div>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </div>
     );
