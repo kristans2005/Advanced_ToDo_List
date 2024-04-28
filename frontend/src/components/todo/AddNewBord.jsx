@@ -22,7 +22,6 @@ export default function AddnewBord() {
         const name = e.target.name;
         const value = e.target.value;
         setData({ ...data, bordID: tableID, [name]: value });
-        console.log(data);
     }
 
     async function handleSubmit(e) {

@@ -27,6 +27,23 @@ function getTodoBoard($TodoTableId) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getTodoBoardMaxColNum($tableID){
+    $sql = "SELECT MAX(bord_column_order) FROM todo_bord WHERE todo_table_id = :todo_table_id";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':todo_table_id', $tableID);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function addTodoBordList($tableID, $bordName, $colNum){
+    $sql = "INSERT INTO todo_bord (todo_table_id, todo_bord_name, bord_column_order) VALUES (:tableID, :bordName, :colNum)";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':tableID', $tableID);
+    $stmt->bindParam(':bordName', $bordName);
+    $stmt->bindParam(':colNum', $colNum);
+    $stmt->execute();
+}
+
 function getTodoList($username) {
     $sql = "SELECT * FROM users WHERE name = :username";
     $stmt = $this->dbConnection->connection()->prepare($sql);
