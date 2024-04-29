@@ -48,13 +48,16 @@ function Login() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <div>
-                <NavBar />
-            </div>
+            <nav className="bg-gray-200 flex w-full h-16 gap-4 items-center justify-center ">
+        <a href="/Signup">
+            <button>Signup</button>
+        </a>
+        <a href="/Login">
+            <button>Login</button>
+        </a>   
+    </nav>
             <div className="flex-1 flex">
-                <div>
-                    <SideBar />
-                </div>
+                
                 <div className="grid h-screen w-screen justify-center items-center">
                     <div className="bg-gray-200 w-max h-max p-5 rounded-md">
                         <h2 className="text-3xl font-bold mb-5">Login</h2>
