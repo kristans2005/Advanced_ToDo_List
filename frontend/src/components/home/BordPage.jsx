@@ -9,6 +9,9 @@ import AddnewBord from "../todo/AddNewBord";
 export default function BordPage() {
     const { bordData } = useGlobalState();
     
+    useEffect(() => {
+        
+    }, []);
 
     const JSX_BordData = bordData.map((item, index) => (
         <div draggable   key={index} className=" bg-gray-900 h-max rounded-md p-2 w-[250px]">

@@ -11,7 +11,11 @@ export default function AddnewBord() {
     const inputRef = useRef(null);
 
     useEffect(() => {
-        setTableID(bordData[0].todo_table_id)
+        if (bordData && bordData.length > 0) {
+            setTableID(bordData[0].todo_table_id);
+        }else{
+            setTableID(1);
+        }
     }, [bordData])
 
     function handleButtonClick() {

@@ -8,6 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 require "../../dbConnection.php";
 require "../../models/userModel.php";
+require "../../utils/sessions.php";
 
 $db = new dbConnection;
 $userModel = new UserModel($db);

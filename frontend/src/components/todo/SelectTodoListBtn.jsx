@@ -19,13 +19,16 @@ export default function SelectTodoListBtn(props) {
     }
     
     return (
-        <button 
+        <a href={`/home/bord/${props.userID}/${props.tableId}`}>
+            <button 
             className=" bg-slate-100 mt-2 p-1 rounded-md w-full hover:bg-slate-300 border-2"
-            value={props.tableId}
-            name="id"
-            onClick={handleChange}
+            // value={props.tableId}
+            // name="id"
+            // onClick={handleChange}
         >
             {props.TodoName}
         </button>  
+        </a>
+        
     )
 }

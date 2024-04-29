@@ -9,6 +9,7 @@ header("Content-Type: application/json");
  
 require "../../dbConnection.php";
 require "../../models/userModel.php";
+require "../../utils/sessions.php";
 
 $db = new dbConnection;
 $userModel = new UserModel($db);

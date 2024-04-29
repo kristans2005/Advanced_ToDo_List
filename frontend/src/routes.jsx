@@ -23,11 +23,11 @@ export const routers = createBrowserRouter([
     element: <Home />,
     children: [
       {
-        path: "/home", // Relative path to the parent route ("/home")
+        path: "/home",
         element: <HomePage />,
       },
       {
-        path: "/home/bord", // Relative path to the parent route ("/home")
+        path: "/home/bord/:userID/:tableID",
         element: <BordPage />,
       },
     ]

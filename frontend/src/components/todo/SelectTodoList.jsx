@@ -29,7 +29,7 @@ export default function SelectTodoList(props) {
     
     const JSX_Data = data.map((item, index) => (
         <div key={index}>
-            <SelectTodoListBtn tableId={item.todo_table_id} TodoName={item.todo_table_name} />
+            <SelectTodoListBtn tableId={item.todo_table_id} TodoName={item.todo_table_name} userID={userId} />
         </div>
     ));
 

@@ -9,6 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 require "../../dbConnection.php";
 require "../../models/todoModel.php";
 require "../../utils/validator.php";
+require "../../utils/sessions.php";
 
 $db = new dbConnection;
 $TodoModel = new ToDoModel($db);
