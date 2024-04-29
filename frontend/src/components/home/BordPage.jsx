@@ -29,6 +29,7 @@ export default function BordPage() {
             }
         }
         getData();
+        console.log("asdaosjdaskd");
     }, [userID, tableID]);
     
 
