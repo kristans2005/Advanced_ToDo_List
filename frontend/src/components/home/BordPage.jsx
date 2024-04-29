@@ -22,6 +22,8 @@ export default function BordPage() {
             try {
                 const response = await axios.post('http://localhost:8888/controllers/todo/todoGetBordController.php', requestData);
                 console.log(response.data);
+                setTableData(response.data);
+                console.log(tableData);
             } catch (error) {
                 console.error("Error fetching book:", error);
             }
