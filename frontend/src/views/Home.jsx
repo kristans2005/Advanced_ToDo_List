@@ -12,6 +12,9 @@ function Home() {
             <a href="/Usersettings">
                 <img src={gear}></img>
             </a>
+            <a href="/Home">
+                <button>Home</button>
+            </a>
         </nav>
             <div className='flex-1 flex'>
                 <div>
