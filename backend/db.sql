@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS advanced_todo;
 
 
---creates user table
+-- creates user table
 CREATE TABLE IF NOT EXISTS users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -9,15 +9,15 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL
 );
 
---placeholder user accounts to user so have something to test with.
+-- placeholder user accounts to user so have something to test with.
 INSERT INTO users (name, email, password) VALUES
 ('kristinas', 'kristians.ipa22@gmail.com', 'k12345678'),
 ('gerda', 'gerda.ipa22@gmail.com', 'g12345678'),
 ('rudolf', 'rudolfs.ipa22@gmail.com', 'r12345678'),
 ('sandris', 'sandris.ipa22@gmail.com', 's12345678');
 
---creates todo table. its like a box that has all the todo stuff inside and it only belongs to the user who made it
---and only he can decide if he wants to allow other users to access the box by making it private or public
+-- creates todo table. its like a box that has all the todo stuff inside and it only belongs to the user who made it
+-- and only he can decide if he wants to allow other users to access the box by making it private or public
 CREATE TABLE IF NOT EXISTS todo_table (
 	todo_table_id INT AUTO_INCREMENT PRIMARY KEY,
 	user_id INT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS todo_table (
 	FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
---placeholders to have something to work with
+-- placeholders to have something to work with
 INSERT INTO todo_table (user_id, todo_table_name, is_private) VALUES
 (1, 'home chores', FALSE ),
 (2, 'school stuff', FALSE ),
@@ -36,7 +36,7 @@ INSERT INTO todo_table (user_id, todo_table_name, is_private) VALUES
 (4, 'unity', FALSE );
 
 
---creates todo bord. so basicly its smaller boxes inside the table box that holds the actual todos 
+-- creates todo bord. so basicly its smaller boxes inside the table box that holds the actual todos 
 CREATE TABLE IF NOT EXISTS todo_bord (
 	todo_bord_id INT AUTO_INCREMENT PRIMARY KEY,
 	todo_table_id INT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS todo_bord (
 	FOREIGN KEY (todo_table_id) REFERENCES todo_table(todo_table_id)
 );
 
---placeholders to have something to work with
+-- placeholders to have something to work with
 INSERT INTO todo_bord (todo_table_id, todo_bord_name, bord_column_order) VALUES
 (1, 'kitchen', 1 ),
 (1, 'bedroom', 3 ),
@@ -62,7 +62,7 @@ INSERT INTO todo_bord (todo_table_id, todo_bord_name, bord_column_order) VALUES
 (6, 'finnished', 3 );
 
 
---todo tasks. you can add title, description, expiration date (optional) and checkbox form if task is completed
+-- todo tasks. you can add title, description, expiration date (optional) and checkbox form if task is completed
 CREATE TABLE IF NOT EXISTS todo_task (
 	todo_task_id INT AUTO_INCREMENT PRIMARY KEY,
 	todo_bord_id INT NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS todo_task (
 	FOREIGN KEY (todo_bord_id) REFERENCES todo_bord(todo_bord_id)
 );
 
---placeholder todo (this was a pain to make pls kill me)
+-- placeholder todo (this was a pain to make pls kill me)
 INSERT INTO todo_task (todo_bord_id, title, description, expiration_date, todo_row_order, is_completed) VALUES
 (1 , 'clean dishes', 'clean until moms home', '2023-12-31 23:59:59', 1, FALSE),
 (1 , 'clean ground', 'clean floor', '2023-12-31 23:59:59', 3, FALSE),

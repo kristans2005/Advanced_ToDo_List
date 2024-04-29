@@ -1,24 +1,19 @@
-// import React, { useState } from 'react';
-import SideBar from '../components/SideBar';
-import NavBar from '../components/NavBar';
 import Footer from '../components/footer';
 
-function Forgot() {
+function Change() {
     return (
         <div className="flex flex-col min-h-screen">
             <nav className="bg-gray-200 flex w-full h-16 gap-4 items-center justify-center ">
-                <a href="/Signup">
-                    <button>Signup</button>
-                </a>
-                <a href="/Login">
-                    <button>Login</button>
+                <a href="/home">
+                    <button>Back</button>
                 </a>
             </nav>
+
             <div className="flex-1 flex">
                 <div className="grid h-auto w-full justify-center place-items-center">
                     <div>
                         <h1 className="text-3xl font-bold mb-5">
-                            Forgot your password?
+                            Change password
                         </h1>
                         <form className="w-full max-w-sm">
                             <div className="mb-4">
@@ -26,13 +21,13 @@ function Forgot() {
                                     className="block text-gray-700 text-sm font-bold mb-2"
                                     htmlFor="username"
                                 >
-                                    Username:
+                                    Old password:
                                 </label>
                                 <input
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="username"
-                                    type="text"
-                                    placeholder="Username"
+                                    id="oldpass"
+                                    type="password"
+                                    placeholder="old password"
                                 />
                             </div>
                             <div className="mb-6">
@@ -40,20 +35,20 @@ function Forgot() {
                                     className="block text-gray-700 text-sm font-bold mb-2"
                                     htmlFor="email"
                                 >
-                                    Email:
+                                    new password:
                                 </label>
                                 <input
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="email"
-                                    type="email"
-                                    placeholder="Email"
+                                    id="newpass"
+                                    type="password"
+                                    placeholder="new password"
                                 />
                             </div>
                             <button
                                 className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full shadow-md"
                                 type="button"
                             >
-                                Reset Password
+                                Change password
                             </button>
                         </form>
                     </div>
@@ -66,4 +61,4 @@ function Forgot() {
     );
 }
 
-export default Forgot;
+export default Change;
