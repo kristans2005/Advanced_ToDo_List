@@ -9,6 +9,7 @@ import BordPage from "./components/home/BordPage.jsx";
 import Login from "./views/login.jsx";
 import Forgot from "./views/Forgot.jsx";
 import Usersettings from "./views/Usersettings.jsx";
+import About from "./views/About.jsx";
 
 export const routers = createBrowserRouter([
   {
@@ -45,5 +46,9 @@ export const routers = createBrowserRouter([
   {
     path: "/usersettings",
     element: <Usersettings />
+  },
+  {
+  path: "/about",
+  element: <About />
   }
 ]);

@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 import SideBar from '../components/SideBar';
 import NavBar from '../components/NavBar';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
 function Forgot() {
     return (
