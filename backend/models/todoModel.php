@@ -19,6 +19,16 @@ function getTodoTable($userId) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function matchTodoTable($tableID, $userId) {
+    $sql = "SELECT * FROM todo_table WHERE (user_id, todo_table_id) = (:userId, :todo_table_id)";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':userId', $userId);
+    $stmt->bindParam(':todo_table_id', $tableID);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 function getTodoBoard($TodoTableId) {
     $sql = "SELECT * FROM todo_bord WHERE todo_table_id = :todo_table_id ORDER BY bord_column_order ASC";
     $stmt = $this->dbConnection->connection()->prepare($sql);
@@ -51,6 +61,8 @@ function getTodoList($username) {
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+
 
 function getBoardList($id) {
     $sql = "SELECT * FROM todo_task WHERE todo_bord_id = :todo_bord_id ORDER BY todo_row_order ASC";

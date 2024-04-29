@@ -5,7 +5,7 @@ import {
 import SignUp from "./views/Signup.jsx";
 import App from './App.jsx';
 import ErrorPage from './Error-page.jsx';
-import Home from "./views/home.jsx";
+import Home from "./views/Home.jsx";
 import HomePage from "./components/home/HomePage.jsx";
 import BordPage from "./components/home/BordPage.jsx";
 import Login from "./views/login.jsx";
@@ -29,7 +29,7 @@ export const routers = createBrowserRouter([
       {
         path: "/home/bord/:userID/:tableID",
         element: <BordPage />,
-      },
+      }      
     ]
   },
   {

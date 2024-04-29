@@ -34,6 +34,14 @@ class UserModel {
         return $stmt->fetchAll();
     }
 
+    function getUserInfoByID($userID) {
+        $sql = "SELECT * FROM users WHERE user_id = :userID";
+        $stmt = $this->dbConnection->connection()->prepare($sql);
+        $stmt->bindParam(':userID', $userID);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     function doesUserExist($username){ 
         $sql = "SELECT * FROM users WHERE name = :username";
         $stmt = $this->dbConnection->connection()->prepare($sql);

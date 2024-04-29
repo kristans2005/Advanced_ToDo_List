@@ -8,27 +8,20 @@ export default function SelectTodoListBtn(props) {
 
     async function handleChange(e) {
         e.preventDefault();
-        const id = e.target.value;
-        try {
-            const data = await getTodoBordData(id, setBordData); // Pass setBordData to getTodoBordData
-            setTodoTableId(id); // Update the global state with the received data
-            navigate("/home/bord");
-        } catch (error) {
-            console.error('Error handling change:', error);
-        }
+        navigate(`/home/bord/${props.userID}/${props.tableId}`);
     }
     
+    
     return (
-        <a href={`/home/bord/${props.userID}/${props.tableId}`}>
-            <button 
+
+        <button 
             className=" bg-slate-100 mt-2 p-1 rounded-md w-full hover:bg-slate-300 border-2"
             // value={props.tableId}
             // name="id"
-            // onClick={handleChange}
+            onClick={handleChange}
         >
             {props.TodoName}
         </button>  
-        </a>
         
     )
 }
