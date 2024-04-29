@@ -15,6 +15,9 @@ function Home() {
             <a href="/about">
                     <button>About us</button>
                 </a>
+            <a href="/Home">
+                <button>Home</button>
+            </a>
         </nav>
             <div className='flex-1 flex'>
                 <div>
