@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($isValid != null ){
         echo json_encode($TodoModel->getTodoBoard($isValid[0]["todo_table_id"]));
     }else{
-        
+        echo json_encode(["error" => "somethin is not right"]);
     }
 
     
