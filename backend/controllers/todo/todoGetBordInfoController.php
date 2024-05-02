@@ -19,10 +19,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $data = json_decode(file_get_contents("php://input"), true);
     //var_dump($data);
-    if($data != NULL) {
-        echo json_encode($TodoModel->getTodoTableByID($data));
+    $isValid = $TodoModel->matchTodoTable($data["tableID"], $data["userID"]);
+
+    if($isValid != null ){
+        echo json_encode($TodoModel->getTodoBoard($isValid[0]["todo_table_id"]));
     }else{
-        echo json_encode($TodoModel->getTodoTableByID(1));
+        
     }
 
     

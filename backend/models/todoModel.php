@@ -11,7 +11,16 @@ class ToDoModel {
     }
 
     
-function getTodoTable($userId) {
+// function getTodoTable($userId, $tableID) {
+//     $sql = "SELECT * FROM todo_table WHERE (user_id, todo_table_id) = (:userId, :tableId)";
+//     $stmt = $this->dbConnection->connection()->prepare($sql);
+//     $stmt->bindParam(':userId', $userId);
+//     $stmt->bindParam(':tableId', $tableID);
+//     $stmt->execute();
+//     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+// }
+
+function getTodoTableByID($userId) {
     $sql = "SELECT * FROM todo_table WHERE user_id = :userId";
     $stmt = $this->dbConnection->connection()->prepare($sql);
     $stmt->bindParam(':userId', $userId);

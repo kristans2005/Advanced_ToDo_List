@@ -13,27 +13,33 @@ export default function BordPage() {
     const { userID, tableID } = useParams();
     const usersID = parseInt(userID);
     const tablesID = parseInt(tableID);
-    const [tableData, setTableData] = useState([])
+    const [boardData, setBoardData] = useState([])
     
 
     useEffect(() => {
         async function getData() {
             const requestData = { userID: usersID, tableID: tablesID };
             try {
-                const response = await axios.post('http://localhost:8888/controllers/todo/todoGetBordController.php', requestData);
-                console.log(response.data);
-                setTableData(response.data);
-                console.log(tableData);
+                const response = await axios.post('http://localhost:8888/controllers/todo/todoGetBordInfoController.php', requestData);
+                console.log("listResposnse", response.data);
+                setBoardData(response.data);
+                if(!response.hasOwnProperty('error')){
+                    // console.log("tablesID", tablesID);
+                    // const BoardResponse = await axios.post('http://localhost:8888/controllers/todo/todoGetBordController.php', response.data);
+                    // console.log("boardResponse", BoardResponse.data);
+                }
+                
             } catch (error) {
                 console.error("Error fetching book:", error);
             }
         }
+        console.log("ids", usersID, tablesID);
         getData();
-        console.log("asdaosjdaskd");
+        
     }, [userID, tableID]);
     
 
-    const JSX_BordData = tableData.map((item, index) => (
+    const JSX_BordData = boardData.map((item, index) => (
         <div draggable key={index} className="bg-gray-900 h-max rounded-md p-2 w-[250px]">
             <div className="text-center">
                 <TodoBordTitle title={item.todo_bord_name} />
