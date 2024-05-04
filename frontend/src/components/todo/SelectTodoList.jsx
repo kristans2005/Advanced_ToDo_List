@@ -6,6 +6,7 @@ import { useGlobalState } from "../../utils/GlobalStateProvider";
 export default function SelectTodoList(props) {
     const [data, setData] = useState([]);
     const { userId } = useGlobalState();
+    const { todoRefresh } = useGlobalState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,7 +24,7 @@ export default function SelectTodoList(props) {
         };
 
         fetchData();
-    }, [userId]); // <-- Include userId in the dependency array
+    }, [userId, todoRefresh]); // <-- Include userId in the dependency array
 
 
     

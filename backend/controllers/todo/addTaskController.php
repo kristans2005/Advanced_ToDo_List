@@ -20,11 +20,12 @@ $TodoModel = new ToDoModel($db);
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $data = json_decode(file_get_contents("php://input"), true);
-
     
-    $todoList = $TodoModel->getTodoBoardMaxColNum($data["bordID"]);
-    $colNum = $todoList[0]["MAX(bord_column_order)"] + 1;
-    $TodoModel->addTodoBordList($data["bordID"], $data["inputValue"], $colNum);
+    
+    $todoList = $TodoModel->getTodoTaskMaxColNum($data["bordID"]);
+    
+    $colNum = $todoList[0]["MAX(todo_row_order)"] + 1;
+    $TodoModel->addTodoTask($data["bordID"], $data["inputValue"], $colNum);
     
 
 

@@ -9,10 +9,13 @@ export const GlobalStateProvider = ({ children }) => {
     const [todoTableId, setTodoTableId] = useState(0);
     const [userId, setUserid] = useState(0);
     const [bordData, setBordData] = useState([]);
-    
+    const [todoRefresh, setTodoRefresh] = useState(0);
+
+    const [boardPlaceHolderInfo, setBoardPlaceHolderInfo] = useState([]);
+
     // Return the todoTableId setter function as part of the value
     return (
-      <GlobalStateContext.Provider value={{ globalState, setGlobalState, setTodoTableId, setUserid, userId, bordData, setBordData }}>
+      <GlobalStateContext.Provider value={{ globalState, setGlobalState, setTodoTableId, setUserid, userId, bordData, setBordData, boardPlaceHolderInfo, setBoardPlaceHolderInfo, todoRefresh, setTodoRefresh }}>
         {children}
       </GlobalStateContext.Provider>
     );

@@ -1,4 +1,5 @@
 import SelectTodoList from "./todo/SelectTodoList";
+import AddNewTable from "./todo/addNewTable";
 
 
 function SideBar(){
@@ -11,6 +12,7 @@ function SideBar(){
         </div>
         <div className=" p-2">
         <SelectTodoList /> 
+        <AddNewTable />
         </div>
     </aside>
     )

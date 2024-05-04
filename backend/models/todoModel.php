@@ -54,6 +54,16 @@ function getTodoBoardMaxColNum($tableID){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+
+function getTodoTaskMaxColNum($bordID){
+    $sql = "SELECT MAX(todo_row_order) FROM todo_task WHERE todo_bord_id = :todo_bord_id";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':todo_bord_id', $bordID);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
 function addTodoBordList($tableID, $bordName, $colNum){
     $sql = "INSERT INTO todo_bord (todo_table_id, todo_bord_name, bord_column_order) VALUES (:tableID, :bordName, :colNum)";
     $stmt = $this->dbConnection->connection()->prepare($sql);
@@ -62,6 +72,26 @@ function addTodoBordList($tableID, $bordName, $colNum){
     $stmt->bindParam(':colNum', $colNum);
     $stmt->execute();
 }
+
+
+function addTodoTable($userID, $title){
+    $sql = "INSERT INTO todo_table (user_Id, todo_table_name) VALUES (:userID, :title)";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':userID', $userID);
+    $stmt->bindParam(':title', $title);
+    $stmt->execute();
+}
+
+
+function addTodoTask($boardID, $taskName, $colNum){
+    $sql = "INSERT INTO todo_task (todo_bord_id, title, todo_row_order) VALUES (:boardID, :taskName, :colNum)";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':boardID', $boardID);
+    $stmt->bindParam(':taskName', $taskName);
+    $stmt->bindParam(':colNum', $colNum);
+    $stmt->execute();
+}
+
 
 function getTodoList($username) {
     $sql = "SELECT * FROM users WHERE name = :username";

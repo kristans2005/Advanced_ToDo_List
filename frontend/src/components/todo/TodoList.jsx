@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useGlobalState } from "../../utils/GlobalStateProvider";
 
 export default function TodoList(props) {
     const [data, setData] = useState([]);
+    const { todoRefresh } = useGlobalState();
 
     useEffect(() => {
         const fetchTodoData = async () => {
@@ -17,7 +19,7 @@ export default function TodoList(props) {
         };
 
         fetchTodoData();
-    }, [props.todoID, props.bordData]);
+    }, [props.todoID, props.bordData, todoRefresh]);
 
     const jsxData = data.map((item, index) => (
         <div draggable key={index} className="text-gray-300 bg-gray-700 rounded-md p-1 text-ellipsis text-wrap truncate">

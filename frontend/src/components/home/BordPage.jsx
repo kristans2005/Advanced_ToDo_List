@@ -9,7 +9,7 @@ import axios from "axios"; // Import axios
 import Login from "../../views/login";
 
 export default function BordPage() {
-    const { bordData } = useGlobalState();
+    const { todoRefresh } = useGlobalState();
     const { userID, tableID } = useParams();
     const usersID = parseInt(userID);
     const tablesID = parseInt(tableID);
@@ -21,22 +21,27 @@ export default function BordPage() {
     useEffect(() => {
         async function getData() {
             const requestData = { userID: usersID, tableID: tablesID };
+
             try {
                 const response = await axios.post('http://localhost:8888/controllers/todo/todoGetBordInfoController.php', requestData);
-                console.log("listResposnse", response.data);
                 setBoardData(response.data);
                 setIsValid(true);
+
                 if (response.data.hasOwnProperty('error')) { // Check if 'error' is present in response.data
-                    console.log("Error occurred:", response.data.error);
                     setIsValid(false);
                 }
+
             } catch (error) {
                 console.error("Error fetching book:", error);
             }
+
         }
-        console.log("ids", usersID, tablesID);
+
         getData();
-    }, [userID, tableID]);
+
+    }, [userID, tableID, todoRefresh]);
+
+
 
     if (isValid) {
         JSX_BordData = boardData.map((item, index) => (
@@ -48,12 +53,11 @@ export default function BordPage() {
                     <TodoList todoID={item.todo_bord_id} />
                 </div>
                 <div>
-                    <AddNewTodo />
+                    <AddNewTodo boardID={item.todo_bord_id} />
                 </div>
             </div>
         ));
     } else {
-        
         JSX_BordData = <div>Error fetching board data. Please try again later.</div>;
     }
 

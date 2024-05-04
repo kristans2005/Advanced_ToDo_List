@@ -2,13 +2,23 @@ import React, { useEffect, useState, useRef } from 'react';
 import addImg from '../../assets/addImg.png';
 import axios from 'axios';
 import { useGlobalState } from '../../utils/GlobalStateProvider';
+import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+
 
 export default function AddnewBord() {
+    const navigate = useNavigate();
+    const { userID, tableID } = useParams();
+    const usersID = parseInt(userID);
+    const tablesID = parseInt(tableID);
+    const { setTodoRefresh } = useGlobalState()
+
     const [isInputMode, setInputMode] = useState(false);
     const [data, setData] = useState({ bordID: 0, inputValue: '' });
     const { bordData } = useGlobalState();
-    const [tableID, setTableID] = useState(0);
+    const [tableIDs, setTableID] = useState(0);
     const inputRef = useRef(null);
+    
 
     useEffect(() => {
         if (bordData && bordData.length > 0) {
@@ -25,7 +35,7 @@ export default function AddnewBord() {
     function handleInputChange(e) {
         const name = e.target.name;
         const value = e.target.value;
-        setData({ ...data, bordID: tableID, [name]: value });
+        setData({ ...data, bordID: tablesID, [name]: value });
     }
 
     async function handleSubmit(e) {
@@ -34,12 +44,14 @@ export default function AddnewBord() {
         if(data.inputValue != "" ){
             try{
                 const response = await axios.post('http://localhost:8888/controllers/todo/addBordListController.php', data);
-                console.log(response.data);
                 setData({ ...data, inputValue: "" });
+                setTodoRefresh(prevCount => prevCount + 1);
+                //navigate(`/home/bord/${usersID}/${tablesID}`);
             }catch (error) {
                 console.error('Error getting todo bord data:', error);
             }
             setInputMode(false);
+
         }
     }
 
