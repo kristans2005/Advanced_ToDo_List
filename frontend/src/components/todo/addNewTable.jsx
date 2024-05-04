@@ -38,7 +38,6 @@ export default function AddNewTable(props){
         if(data.inputValue != "" ){
             try{
                 const response = await axios.post('http://localhost:8888/controllers/todo/addTableController.php', data);
-                console.log(response.data);
                 setData({ ...data, inputValue: "" });
                 setTodoRefresh(prevCount => prevCount + 1);
             }catch (error) {
