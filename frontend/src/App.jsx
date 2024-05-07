@@ -5,7 +5,13 @@ function App() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        navigate('/home');
+        console.log(localStorage.getItem('user'));
+        if(localStorage.getItem('user') != "null"){
+            navigate('/home');
+        }else{
+            navigate('/signup');
+        }
+        
     }, [navigate]);
 
     return null;

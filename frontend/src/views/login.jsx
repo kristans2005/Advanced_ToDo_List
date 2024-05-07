@@ -3,12 +3,14 @@ import SideBar from '../components/SideBar';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer'; // Corrected import
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [backendData, setBackendData] = useState([]);
     const [error, setError] = useState({});
+    const navigate = useNavigate()
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -32,7 +34,8 @@ function Login() {
                 } else {
                     setBackendData(responseData);
                     localStorage.setItem('user', JSON.stringify(responseData));
-                    setError({}); // Clear any previous errors
+                    setError({});
+                    navigate('/home');
                 }
             }
         } catch (error) {

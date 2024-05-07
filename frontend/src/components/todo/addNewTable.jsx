@@ -29,7 +29,9 @@ export default function AddNewTable(props){
     function handleInputChange(e) {
         const name = e.target.name;
         const value = e.target.value;
-        setData({ ...data, userID: user_ID, [name]: value });
+        const user = JSON.parse(localStorage.getItem('user'));
+        const userID = user[0]["user_id"];
+        setData({ ...data, userID: userID, [name]: value });
     }
 
     async function handleSubmit(e) {

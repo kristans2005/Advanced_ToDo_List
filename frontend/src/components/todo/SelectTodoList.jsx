@@ -11,8 +11,9 @@ export default function SelectTodoList(props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const userId = localStorage.getItem('userId');
-                const responseData = await SendData('http://localhost:8888/controllers/todo/todoGetListController.php', userId);
+                const user = JSON.parse(localStorage.getItem('user'));
+                const userID = user[0]["user_id"];
+                const responseData = await SendData('http://localhost:8888/controllers/todo/todoGetListController.php', userID);
                 if (Array.isArray(responseData) && !responseData.hasOwnProperty('error')) {
                     setData(responseData);
                 } else {
