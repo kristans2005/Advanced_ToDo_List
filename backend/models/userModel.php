@@ -80,17 +80,22 @@ class UserModel {
 
 
 
-
-    function deleteUser(){
-
-    }
+    function deleteUser($username){ 
+            $sql = "DELETE FROM users WHERE name = :username";
+            $stmt = $this->dbConnection->connection()->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->execute();
+            // Check if any rows were affected
+            if($stmt->rowCount() > 0) {
+                return true; // User deleted successfully
+            } else {
+                return false; // User does not exist or deletion failed
+            }
+        }
+        
+}
 
 
 
 
     //utt
-
-
-
-
-}
