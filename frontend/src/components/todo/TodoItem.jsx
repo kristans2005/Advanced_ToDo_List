@@ -17,7 +17,6 @@ export default function TodoItem({ item }) {
         >
             <div>
             <h1>{item.title}</h1>
-            <h1>{item.todo_task_id}</h1>
             </div>
             {isHovered && (
                 <div className="text-white w-max">
