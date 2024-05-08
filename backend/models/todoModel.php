@@ -73,6 +73,13 @@ function addTodoBordList($tableID, $bordName, $colNum){
     $stmt->execute();
 }
 
+function deleteTodo($todoID){
+    $sql = "DELETE FROM todo_task WHERE todo_task_id = :todo_task_id";
+    $stmt = $this->dbConnection->connection()->prepare($sql);
+    $stmt->bindParam(':todo_task_id', $todoID);
+    $stmt->execute();
+}
+
 
 function addTodoTable($userID, $title){
     $sql = "INSERT INTO todo_table (user_Id, todo_table_name) VALUES (:userID, :title)";
