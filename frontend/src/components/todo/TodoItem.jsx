@@ -21,7 +21,7 @@ export default function TodoItem({ item }) {
             {isHovered && (
                 <div className="text-white w-max">
                     <div className=" flex justify-end">
-                        <EditTodoBtn />
+                    {/* <EditTodoBtn /> */}
                         <DeleteTodoBtn todoID={item.todo_task_id} />
                     </div>
                 </div>
